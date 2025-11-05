@@ -9,7 +9,8 @@ drop table Empleados;
 drop table audit_reservas;
 drop table estadisticas_ocupacion;
 drop table error_log;
-
+drop SEQUENCE audit_reservas_seq;
+drop SEQUENCE estadisticas_ocupacion_seq;
 create table Peliculas(
     pelicula_id number primary key,
     titulo VARCHAR2(100) not null,
@@ -95,6 +96,19 @@ CREATE TABLE error_log (
     error_date DATE DEFAULT SYSDATE,
     contexto VARCHAR2(500)
 );
+
+-- Secuencia para la tabla de auditoría de reservas
+CREATE SEQUENCE audit_reservas_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE;
+
+-- Secuencia para la tabla de estadísticas
+CREATE SEQUENCE estadisticas_ocupacion_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE;
+
 -- Relación entre 'funciones' y 'peliculas'
 ALTER TABLE Funciones
 ADD FOREIGN KEY (pelicula_id) REFERENCES peliculas(pelicula_id);

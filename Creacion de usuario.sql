@@ -23,8 +23,9 @@ GRANT CONNECT, RESOURCE, CREATE VIEW, CREATE TRIGGER,
  CREATE PROCEDURE, CREATE SEQUENCE TO cinepolis_user;
 
 -- Permiso para visualizar salidas en la consola
-GRANT EXECUTE ON DBMS_OUTPUT TO cinepolis_user;
-
+--GRANT EXECUTE ON DBMS_OUTPUT TO cinepolis_user;
+--esto me fallo en system 
+--usa set SERVEROUTPUT on;
 -- Conexión como el nuevo usuario para verificar
 CONNECT cinepolis_user/tu_contraseña_segura;
 
